@@ -1,47 +1,72 @@
 /*!
- *     COPYRIGHT NOTICE
- *     Copyright (c) 2013,山外科技
- *     All rights reserved.
- *     技术讨论：山外论坛 http://www.vcan123.com
- *
- *     除注明出处外，以下所有内容版权均属山外科技所有，未经允许，不得用于商业用途，
- *     修改内容时必须保留山外科技的版权声明。
- *
- * @file       main.c
- * @brief      山外K60 平台主程序
- * @author     山外科技
- * @version    v5.0
- * @date       2013-08-28
- */
+*     COPYRIGHT NOTICE
+*     Copyright (c) 2013,山外科技
+*     All rights reserved.
+*     技术讨论：山外论坛 http://www.vcan123.com
+*
+*     除注明出处外，以下所有内容版权均属山外科技所有，未经允许，不得用于商业用途，
+*     修改内容时必须保留山外科技的版权声明。
+*
+* @file       main.c
+* @brief      山外K60 平台主程序
+* @author     山外科技
+* @version    v5.0
+* @date       2013-08-28
+*/
 
 #include "common.h"
 #include "include.h"
+#include "math.h"
+#include "SEEKFREE_OLED.h"
+#include "TENIRE_TFT.h"
+#include "loop.h"
+#include "OLED_list.h"
+#include "SEEKFREE_MPU6050 2.h"
+#include "SEEKFREE_IIC.h"
 
+void PIT0_IRQHandler();
 
-uint8_t     usb_com_rx_len = 0;
-uint8_t     rx_buf[64];
-
-/*!
- *  @brief      main函数
- *  @since      v5.0
- *  @note       山外 USB 虚拟串口 测试实验
-                注意，还没加入 中断接收，如果接收数据太快，就有可能会丢失
- */
-void  main(void)
+void main()
 {
-    usb_com_init();                                 //初始USB为 虚拟串口模式
 
-    usb_enum_wait();                                //等待 PC 枚举
+	IIC_init();
+	InitMPU6050();
+	
+	//串口
+	uart_init(UART1,115200);
+	
+	//MPU6050
+	ftm_quad_init(FTM1);
+	
+	//PIT
+	pit_init_ms(PIT0,1);	
+	set_vector_handler(PIT0_VECTORn ,PIT0_IRQHandler);
+	enable_irq (PIT0_IRQn);
+	
+	//电机
+	ftm_pwm_init(FTM0,FTM_CH4,13*1000,0);//左反
+	ftm_pwm_init(FTM0,FTM_CH5,13*1000,0);//左正
+	
+	ftm_pwm_init(FTM0,FTM_CH6,13*1000,0);//右反
+	ftm_pwm_init(FTM0,FTM_CH7,13*1000,0);//右正
+	
+	//OLED
+	OLED_Init();
+	firstlist();
+	
+	//adc
+	adc_init(ADC0_DP0);
+	adc_init(ADC0_DM0);
+	while(1)
+	{
+		
+	}
+}
 
-    while(1)
-    {
-        CDC_Engine();                               //USB_CDC 常规处理
 
-        usb_com_rx_len = usb_com_rx(rx_buf);        //查询数据接受
-        if(usb_com_rx_len > 0)
-        {
-            usb_com_tx(rx_buf, usb_com_rx_len);     //发送数据
-            //usb_com_rx_len = 0;
-        }
-    }
+void PIT0_IRQHandler()
+{
+	loop_run();
+	
+	PIT_Flag_Clear(PIT0);
 }

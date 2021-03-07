@@ -23,12 +23,7 @@
 //#define MK60DZ10
 //#define MK60F15
 
-/*
- * 定义LCD型号
- */
-#define LCD_ILI9341     1
 
-#define USE_LCD         LCD_ILI9341             //选择使用的 LCD 
 
 
 /*
@@ -82,7 +77,7 @@
 /*
  * 定义 printf函数 的 串口输出端口 和 串口信息
  */
-#define VCAN_PORT           UART3
+#define VCAN_PORT           UART1
 #define VCAN_BAUD           115200
 
 /*
