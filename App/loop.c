@@ -6,7 +6,7 @@ float out2[3]={0};
 
 void duty_8ms()
 {
-	//balance(getAngle(),mpu_gyro_y);
+	balance(getAngle(),mpu_gyro_y);
 }
 void duty_50ms()
 {
@@ -15,7 +15,7 @@ void duty_50ms()
 
 void duty_500ms()
 {
-	out2[0]=adc_once(ADC0_DP0,ADC_16bit);
+	/*out2[0]=adc_once(ADC0_DP0,ADC_16bit);
 	out2[1]=adc_once(ADC0_DM0,ADC_16bit);
 	if(out2[0]+out2[1]==0)
 	{
@@ -27,7 +27,7 @@ void duty_500ms()
 	vcan_sendware(out2,sizeof(out2));
 	printf("%f\n",out2[0]);
 	printf("%f\n",out2[1]);
-	printf("%f\n",out2[2]);
+	printf("%f\n",out2[2]);*/
 }
 
 void loop_run()
