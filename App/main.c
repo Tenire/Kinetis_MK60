@@ -55,8 +55,8 @@ void main()
 	firstlist();
 	
 	//adc
-	adc_init(ADC0_DP0);
-	adc_init(ADC0_DM0);
+	adc_init(ADC1_DP1);
+	adc_init(ADC1_DM1);
 	while(1)
 	{
 		

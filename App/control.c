@@ -5,7 +5,7 @@ float out[2];
 float balance_Gyro;
 float accel_Angle;
 float angle;
-float angle_target=-8.5;
+float angle_target=-7.5;
 
 
 void balance(float angle,int gyro)
