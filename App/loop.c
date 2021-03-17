@@ -1,16 +1,24 @@
 #include "loop.h"
 
 
+
 int i=0;
 int out2[3];
+int j=0;
+
+void duty_4ms()
+{
+	getAngle();
+}
 
 void duty_8ms()
 {
-	//balance(getAngle(),mpu_gyro_y);
+	balance(angle,mpu_gyro_y);
 }
-void duty_50ms()
+void duty_40ms()
 {
-	
+	velocity();;
+	out[5]=i;
 }
 
 void duty_500ms()
@@ -35,23 +43,47 @@ void duty_500ms()
 
 void loop_run()
 {
+	if(i%4==0)
+	{
+		duty_4ms();
+	}
 	if(i%8==0)
 	{
 		duty_8ms();
 	}
-	if(i%500==0)
+	if(i%40==0)
 	{
-		duty_500ms();
+		duty_40ms();
 	}
-	if(i%50==0)
-	{
-		duty_50ms();
-	}
-	if(i>=500)
+	if(i>=39)
 	{
 		i=0;
 	}else
 	{
 		i++;
 	}
+	j++;
+	if(j=0)
+	{
+		speed_target=0;
+	}
+	if(j>10000)
+	{
+		speed_target=0;
+	}
+	if(j>15000)
+	{
+		speed_target=0;
+	}
+	
 }
+
+
+
+
+
+
+
+
+
+

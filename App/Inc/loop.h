@@ -5,7 +5,8 @@
 #include "control.h"
 
 void loop_run();
+void duty_4ms();
 void duty_8ms();
-void duty_50ms();
+void duty_40ms();
 void duty_500ms();
 #endif

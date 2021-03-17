@@ -7111,7 +7111,13 @@
             <name>$PROJ_DIR$\..\..\App\control.c</name>
         </file>
         <file>
+            <name>$PROJ_DIR$\..\..\App\Inc\control.h</name>
+        </file>
+        <file>
             <name>$PROJ_DIR$\..\..\App\loop.c</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\App\Inc\loop.h</name>
         </file>
         <file>
             <name>$PROJ_DIR$\..\..\App\main.c</name>
@@ -7132,16 +7138,28 @@
             <name>$PROJ_DIR$\..\..\App\OLED_list.c</name>
         </file>
         <file>
+            <name>$PROJ_DIR$\..\..\App\Inc\OLED_list.h</name>
+        </file>
+        <file>
             <name>$PROJ_DIR$\..\..\App\Inc\PORT_cfg.h</name>
         </file>
         <file>
             <name>$PROJ_DIR$\..\..\App\SEEKFREE_IIC.c</name>
         </file>
         <file>
+            <name>$PROJ_DIR$\..\..\App\Inc\SEEKFREE_IIC.h</name>
+        </file>
+        <file>
             <name>$PROJ_DIR$\..\..\App\SEEKFREE_MPU6050 2.c</name>
         </file>
         <file>
+            <name>$PROJ_DIR$\..\..\App\Inc\SEEKFREE_MPU6050 2.h</name>
+        </file>
+        <file>
             <name>$PROJ_DIR$\..\..\App\SEEKFREE_OLED.c</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\App\Inc\SEEKFREE_OLED.h</name>
         </file>
     </group>
     <group>

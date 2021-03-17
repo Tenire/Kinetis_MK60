@@ -18,7 +18,6 @@
 #include "include.h"
 #include "math.h"
 #include "SEEKFREE_OLED.h"
-#include "TENIRE_TFT.h"
 #include "loop.h"
 #include "OLED_list.h"
 #include "SEEKFREE_MPU6050 2.h"
@@ -35,8 +34,9 @@ void main()
 	//´®¿Ú
 	uart_init(UART1,115200);
 	
-	//MPU6050
+	//±àÂëÆ÷
 	ftm_quad_init(FTM1);
+	ftm_quad_init(FTM2);
 	
 	//PIT
 	pit_init_ms(PIT0,1);	
@@ -70,3 +70,12 @@ void PIT0_IRQHandler()
 	
 	PIT_Flag_Clear(PIT0);
 }
+
+
+
+
+
+
+
+
+
