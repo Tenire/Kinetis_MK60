@@ -13,12 +13,11 @@ float accel_Angle;
 float angle;
 
 //平衡角度
-float balance_angle=-6;
-//float balance_angle=52.5;
+//float balance_angle=-6;
+float balance_angle=58;
 
 //目标角度
-//float angle_target=52.5;
-float angle_target=-6;
+float angle_target=58;
 
 float balance1;
 
@@ -35,13 +34,13 @@ float speed;
 float speed_sum;
 
 //目标速度
-float speed_target=0;
+static float speed_target=0;
 
 
 void balance(float angle,int gyro)
 {
 	//P,D
-	float bias,kp=12,kd=0.1;
+	float bias,kp=8,kd=0.1;
 	//角度偏差
 	bias=angle_target-angle;
 	float balance;
@@ -55,11 +54,13 @@ void balance(float angle,int gyro)
 			balance=99;
 		}
 		
+		ftm_pwm_duty(FTM0,FTM_CH5,0);
+		ftm_pwm_duty(FTM0,FTM_CH7,0);
+		
 		ftm_pwm_duty(FTM0,FTM_CH4,balance);
 		ftm_pwm_duty(FTM0,FTM_CH6,balance);
 		
-		ftm_pwm_duty(FTM0,FTM_CH5,0);
-		ftm_pwm_duty(FTM0,FTM_CH7,0);
+		
 		balance1=balance;
 	}else
 	{
@@ -73,7 +74,7 @@ void balance(float angle,int gyro)
 		
 		ftm_pwm_duty(FTM0,FTM_CH5,balance);
 		ftm_pwm_duty(FTM0,FTM_CH7,balance);
-		balance1=-balance;
+		balance1=balance;
 	}
 	
 	
@@ -101,17 +102,19 @@ void getAngle()
 	angle=Filter_Weight*accel_Angle+(1-Filter_Weight)*(angle+balance_Gyro*gyro_dt);
 	
 	//速度
-	speed_left=ftm_quad_get(FTM1);
+	speed_right=ftm_quad_get(FTM1);
 	ftm_quad_clean(FTM1);
-	speed_right=-ftm_quad_get(FTM2);
+	speed_left=-ftm_quad_get(FTM2);
 	ftm_quad_clean(FTM2);
-	speed=(speed_left+speed_right)/2;
+	//speed=(speed_left+speed_right)/2;
+	speed=speed_right;
 	
 	out[0]=accel_Angle;
 	out[1]=angle;
 	out[2]=balance1;
 	out[3]=speed_left;
 	out[4]=speed_right;
+	out[5]=speed_target;
 	
 	vcan_sendware(out,sizeof(out));
 	
@@ -120,12 +123,21 @@ void getAngle()
 void velocity()
 {
 	//P,D
-	float speed_bias,kp=0.2,ki=0;
+	float speed_bias,kp=0.05,ki=0;
 	//速度偏差
 	speed_bias=speed_target-speed;
 	speed_sum+=speed_bias;
-	angle_target=balance_angle-(kp*speed_bias+ki*speed_sum);
+	angle_target=balance_angle+(kp*speed_bias+ki*speed_sum);
 }
+
+void setSpeed(float speedd)
+{
+	speed_target=speedd;
+}
+
+
+
+
 
 
 

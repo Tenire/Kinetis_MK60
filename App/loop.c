@@ -62,20 +62,28 @@ void loop_run()
 	{
 		i++;
 	}
-	j++;
-	if(j=0)
+	
+	if(j==0)
 	{
-		speed_target=0;
+		setSpeed(0);
 	}
 	if(j>10000)
 	{
-		speed_target=0;
+		setSpeed(100);
 	}
 	if(j>15000)
 	{
-		speed_target=0;
+		setSpeed(0);
 	}
-	
+	if(j>20000)
+	{
+		setSpeed(-100);
+	}
+	if(j>25000)
+	{
+		setSpeed(0);
+	}
+	j++;
 }
 
 

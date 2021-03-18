@@ -13,4 +13,6 @@ void balance(float angle,int gyro);
 void getAngle();
 void velocity();
 
+void setSpeed(float speedd);
+
 #endif
