@@ -69,17 +69,21 @@ void loop_run()
 	}
 	if(j>10000)
 	{
-		setSpeed(100);
+		setSpeed(50);
 	}
-	if(j>15000)
+	if(j>12000)
+	{
+		setSpeed(-25);
+	}
+	if(j>13000)
 	{
 		setSpeed(0);
 	}
-	if(j>20000)
+	if(j>18000)
 	{
-		setSpeed(-100);
+		setSpeed(-50);
 	}
-	if(j>25000)
+	if(j>20000)
 	{
 		setSpeed(0);
 	}

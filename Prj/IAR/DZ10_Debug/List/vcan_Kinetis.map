@@ -1,6 +1,6 @@
 ###############################################################################
 #
-# IAR ELF Linker V8.32.1.169/W32 for ARM                  18/Mar/2021  22:59:45
+# IAR ELF Linker V8.32.1.169/W32 for ARM                  20/Mar/2021  22:40:04
 # Copyright 2007-2018 IAR Systems AB.
 #
 #    Output file  =  
@@ -8,7 +8,7 @@
 #    Map file     =  
 #        D:\IAR-workspace\Kinetis_MK60\Prj\IAR\DZ10_Debug\List\vcan_Kinetis.map
 #    Command line =  
-#        -f C:\Users\IShute\AppData\Local\Temp\EWED31.tmp
+#        -f C:\Users\IShute\AppData\Local\Temp\EW9826.tmp
 #        (D:\IAR-workspace\Kinetis_MK60\Prj\IAR\DZ10_Debug\Obj\control.o
 #        D:\IAR-workspace\Kinetis_MK60\Prj\IAR\DZ10_Debug\Obj\diskio.o
 #        D:\IAR-workspace\Kinetis_MK60\Prj\IAR\DZ10_Debug\Obj\ff.o
@@ -117,7 +117,7 @@ initialize manually with packing = copy, complex ranges { section .textrw };
   .noinit              ro code        0x410     0x8  startup_MK60DZ10.o [1]
                                     - 0x418     0x8
 
-"P1":                                        0x5c58
+"P1":                                        0x5dfc
   .text                ro code        0x418   0xd90  OLED_list.o [1]
   .text                ro code       0x11a8   0x440  SEEKFREE_OLED.o [1]
   .text                ro code       0x15e8    0xa6  ABImemcpy.o [4]
@@ -159,67 +159,69 @@ initialize manually with packing = copy, complex ranges { section .textrw };
     Initializer bytes  const         0x3a80   0x830  <for .data-1>
   Veneer               ro code       0x42b0     0x8  - Linker created -
   .text                ro code       0x42b8   0x3a8  MK60_mcg.o [1]
-  .text                ro code       0x4660   0x280  control.o [1]
-  .text                ro code       0x48e0    0x80  FltSub.o [3]
-  .text                ro code       0x4960    0xd8  FltMul.o [3]
-  .text                ro code       0x4a38    0x24  S32ToFlt.o [3]
-  .text                ro code       0x4a5c    0x24  FltCmpGe.o [3]
-  .text                ro code       0x4a80    0x22  FltToU32.o [3]
-  .text                ro code       0x4aa4    0xe0  SEEKFREE_MPU6050 2.o [1]
-  .text                ro code       0x4b84   0x10a  atan2_64.o [3]
-  .text                ro code       0x4c90    0x68  DblToFlt.o [3]
-  .text                ro code       0x4cf8    0x48  FltToDbl.o [3]
-  .text                ro code       0x4d40    0xe2  FltAdd.o [3]
-  .text                ro code       0x4e24    0x40  VCAN_computer.o [1]
-  .text                ro code       0x4e64   0x26a  SEEKFREE_IIC.o [1]
-  .text                ro code       0x50d0   0x210  iar_Atan64.o [3]
-  .rodata              const         0x52e0   0x228  SEEKFREE_OLED.o [1]
-  .text                ro code       0x5508   0x214  MK60_adc.o [1]
-  CodeRelocate                       0x571c   0x1bc  <Block>
-    Initializer bytes  const         0x571c   0x1bc  <for CodeRelocateRam-1>
-  .text                ro code       0x58d8   0x118  system_MK60DZ10.o [1]
-  .text                ro code       0x59f0    0x40  MK60_wdog.o [1]
-  .text                ro code       0x5a30    0xbc  main.o [1]
-  .text                ro code       0x5aec    0x50  misc.o [1]
-  .text                ro code       0x5b3c    0x7c  MK60_PIT.o [1]
-  .text                ro code       0x5bb8    0xf8  loop.o [1]
-  .rodata              const         0x5cb0    0x40  iar_Atan64.o [3]
-  .rodata              const         0x5cf0    0x3c  MK60_conf.o [1]
-  .rodata              const         0x5d2c    0x38  MK60_SysTick.o [1]
-  .rodata              const         0x5d64    0x34  MK60_adc.o [1]
-  .rodata              const         0x5d98    0x34  MK60_flash.o [1]
-  .rodata              const         0x5dcc    0x34  MK60_ftm.o [1]
-  .rodata              const         0x5e00    0x34  MK60_gpio.o [1]
-  .rodata              const         0x5e34    0x34  MK60_PIT.o [1]
-  .rodata              const         0x5e68    0x34  MK60_uart.o [1]
-  .rodata              const         0x5e9c    0x30  misc.o [1]
-  .text                ro code       0x5ecc    0x28  data_init.o [4]
-  .rodata              const         0x5ef4    0x24  MK60_conf.o [1]
-  .iar.init_table      const         0x5f18    0x10  - Linker created -
-  .rodata              const         0x5f28    0x20  MK60_conf.o [1]
-  .text                ro code       0x5f48    0x1e  cmain.o [4]
-  .text                ro code       0x5f66     0x4  low_level_init.o [2]
-  .text                ro code       0x5f6a     0x4  exit.o [2]
-  .text                ro code       0x5f70     0xa  cexit.o [4]
-  .rodata              const         0x5f7c    0x18  OLED_list.o [1]
-  .text                ro code       0x5f94    0x16  xprout.o [2]
-  .text                ro code       0x5fac     0xc  putchar.o [2]
-  .rodata              const         0x5fb8    0x14  MK60_conf.o [1]
-  .rodata              const         0x5fcc    0x10  OLED_list.o [1]
-  .rodata              const         0x5fdc    0x10  OLED_list.o [1]
-  .rodata              const         0x5fec    0x10  OLED_list.o [1]
-  .rodata              const         0x5ffc    0x10  OLED_list.o [1]
-  .rodata              const         0x600c    0x10  OLED_list.o [1]
-  .rodata              const         0x601c    0x10  OLED_list.o [1]
-  .rodata              const         0x602c     0xc  OLED_list.o [1]
-  .rodata              const         0x6038     0xc  OLED_list.o [1]
-  .rodata              const         0x6044     0xc  OLED_list.o [1]
-  .text                ro code       0x6050     0xc  cstartup_M.o [4]
-  .rodata              const         0x605c     0x8  OLED_list.o [1]
-  .rodata              const         0x6064     0x8  OLED_list.o [1]
-  .rodata              const         0x606c     0x4  xlocale_c.o [2]
-  .rodata              const         0x6070     0x0  zero_init3.o [4]
-                                   - 0x6070  0x5c58
+  .text                ro code       0x4660   0x2f0  control.o [1]
+  .text                ro code       0x4950    0x80  FltSub.o [3]
+  .text                ro code       0x49d0    0xd8  FltMul.o [3]
+  .text                ro code       0x4aa8    0x24  S32ToFlt.o [3]
+  .text                ro code       0x4acc    0x24  FltCmpGe.o [3]
+  .text                ro code       0x4af0    0x22  FltToU32.o [3]
+  .text                ro code       0x4b14    0xe0  SEEKFREE_MPU6050 2.o [1]
+  .text                ro code       0x4bf4   0x10a  atan2_64.o [3]
+  .text                ro code       0x4d00    0x68  DblToFlt.o [3]
+  .text                ro code       0x4d68    0x48  FltToDbl.o [3]
+  .text                ro code       0x4db0    0xe2  FltAdd.o [3]
+  .text                ro code       0x4e94    0xfc  FltDiv.o [3]
+  .text                ro code       0x4f90    0x40  VCAN_computer.o [1]
+  .text                ro code       0x4fd0    0x24  FltCmpLe.o [3]
+  .text                ro code       0x4ff4   0x26a  SEEKFREE_IIC.o [1]
+  .text                ro code       0x5260   0x210  iar_Atan64.o [3]
+  .rodata              const         0x5470   0x228  SEEKFREE_OLED.o [1]
+  .text                ro code       0x5698   0x214  MK60_adc.o [1]
+  CodeRelocate                       0x58ac   0x1bc  <Block>
+    Initializer bytes  const         0x58ac   0x1bc  <for CodeRelocateRam-1>
+  .text                ro code       0x5a68   0x118  system_MK60DZ10.o [1]
+  .text                ro code       0x5b80    0x40  MK60_wdog.o [1]
+  .text                ro code       0x5bc0    0xbc  main.o [1]
+  .text                ro code       0x5c7c    0x50  misc.o [1]
+  .text                ro code       0x5ccc    0x7c  MK60_PIT.o [1]
+  .text                ro code       0x5d48   0x10c  loop.o [1]
+  .rodata              const         0x5e54    0x3c  MK60_conf.o [1]
+  .rodata              const         0x5e90    0x40  iar_Atan64.o [3]
+  .rodata              const         0x5ed0    0x38  MK60_SysTick.o [1]
+  .rodata              const         0x5f08    0x34  MK60_adc.o [1]
+  .rodata              const         0x5f3c    0x34  MK60_flash.o [1]
+  .rodata              const         0x5f70    0x34  MK60_ftm.o [1]
+  .rodata              const         0x5fa4    0x34  MK60_gpio.o [1]
+  .rodata              const         0x5fd8    0x34  MK60_PIT.o [1]
+  .rodata              const         0x600c    0x34  MK60_uart.o [1]
+  .rodata              const         0x6040    0x30  misc.o [1]
+  .text                ro code       0x6070    0x28  data_init.o [4]
+  .rodata              const         0x6098    0x24  MK60_conf.o [1]
+  .iar.init_table      const         0x60bc    0x10  - Linker created -
+  .rodata              const         0x60cc    0x20  MK60_conf.o [1]
+  .text                ro code       0x60ec    0x1e  cmain.o [4]
+  .text                ro code       0x610a     0x4  low_level_init.o [2]
+  .text                ro code       0x610e     0x4  exit.o [2]
+  .text                ro code       0x6114     0xa  cexit.o [4]
+  .rodata              const         0x6120    0x18  OLED_list.o [1]
+  .text                ro code       0x6138    0x16  xprout.o [2]
+  .text                ro code       0x6150     0xc  putchar.o [2]
+  .rodata              const         0x615c    0x14  MK60_conf.o [1]
+  .rodata              const         0x6170    0x10  OLED_list.o [1]
+  .rodata              const         0x6180    0x10  OLED_list.o [1]
+  .rodata              const         0x6190    0x10  OLED_list.o [1]
+  .rodata              const         0x61a0    0x10  OLED_list.o [1]
+  .rodata              const         0x61b0    0x10  OLED_list.o [1]
+  .rodata              const         0x61c0    0x10  OLED_list.o [1]
+  .rodata              const         0x61d0     0xc  OLED_list.o [1]
+  .rodata              const         0x61dc     0xc  OLED_list.o [1]
+  .rodata              const         0x61e8     0xc  OLED_list.o [1]
+  .text                ro code       0x61f4     0xc  cstartup_M.o [4]
+  .rodata              const         0x6200     0x8  OLED_list.o [1]
+  .rodata              const         0x6208     0x8  OLED_list.o [1]
+  .rodata              const         0x6210     0x4  xlocale_c.o [2]
+  .rodata              const         0x6214     0x0  zero_init3.o [4]
+                                   - 0x6214  0x5dfc
 
 "P2", part 1 of 2:                            0x9ec
   .data                         0x1fff'0410   0x830  <Block>
@@ -285,7 +287,7 @@ Unused ranges:
 
          From           To      Size
          ----           --      ----
-       0x6070     0x8'0000  0x7'9f91
+       0x6214     0x8'0000  0x7'9ded
   0x1fff'0f04  0x2001'0000  0x1'f0fd
 
 
@@ -330,15 +332,15 @@ D:\IAR-workspace\Kinetis_MK60\Prj\IAR\DZ10_Debug\Obj: [1]
     VCAN_LED.o                128                 4        4
     VCAN_computer.o            64                 4
     VCAN_key.o                164                 8        8
-    control.o                 640                 8       68
-    loop.o                    248                          8
+    control.o                 752                 8       68
+    loop.o                    268                          8
     main.o                    188
     misc.o                     80                48
     startup_MK60DZ10.o          8
     system_MK60DZ10.o         280                         12
     vectors.o                                 1 040
     --------------------------------------------------------
-    Total:                 11 838      428    4 728    2 144
+    Total:                 11 970      428    4 728    2 144
 
 dl7M_tlf.a: [2]
     abort.o                     6
@@ -365,6 +367,8 @@ m7M_tl.a: [3]
     DblToU32.o                 40
     FltAdd.o                  226
     FltCmpGe.o                 36
+    FltCmpLe.o                 36
+    FltDiv.o                  252
     FltMul.o                  216
     FltSub.o                  128
     FltToDbl.o                 72
@@ -376,7 +380,7 @@ m7M_tl.a: [3]
     frexp.o                   112
     iar_Atan64.o              528                64
     --------------------------------------------------------
-    Total:                  3 520                64
+    Total:                  3 808                64
 
 rt7M_tl.a: [4]
     ABImemcpy.o               166
@@ -397,7 +401,7 @@ rt7M_tl.a: [4]
     Gaps                       32                 2
     Linker created             24       16       32
 ------------------------------------------------------------
-    Grand Total:           19 730      444    4 958    2 356
+    Grand Total:           20 150      444    4 958    2 356
 
 
 *******************************************************************************
@@ -412,34 +416,34 @@ Entry                       Address   Size  Type      Object
 .data$$Limit            0x1fff'0c40          --   Gb  - Linker created -
 .data_init$$Base             0x3a80          --   Gb  - Linker created -
 .data_init$$Limit            0x42b0          --   Gb  - Linker created -
-.iar.init_table$$Base        0x5f18          --   Gb  - Linker created -
-.iar.init_table$$Limit       0x5f28          --   Gb  - Linker created -
-?main                        0x5f49         Code  Gb  cmain.o [4]
-ASSERT_FAILED_STR            0x5ef4   0x24  Data  Gb  MK60_conf.o [1]
+.iar.init_table$$Base        0x60bc          --   Gb  - Linker created -
+.iar.init_table$$Limit       0x60cc          --   Gb  - Linker created -
+?main                        0x60ed         Code  Gb  cmain.o [4]
+ASSERT_FAILED_STR            0x6098   0x24  Data  Gb  MK60_conf.o [1]
 Change_Key_Position           0x49d   0x56  Code  Gb  OLED_list.o [1]
 Clean_Key_Position            0x419   0x3e  Code  Gb  OLED_list.o [1]
-CodeRelocate$$Base           0x571c          --   Gb  - Linker created -
-CodeRelocate$$Limit          0x58d8          --   Gb  - Linker created -
+CodeRelocate$$Base           0x58ac          --   Gb  - Linker created -
+CodeRelocate$$Limit          0x5a68          --   Gb  - Linker created -
 CodeRelocateRam$$Base   0x1fff'0c40          --   Gb  - Linker created -
 CodeRelocateRam$$Limit  0x1fff'0dfc          --   Gb  - Linker created -
 DisplayDou                   0x1489   0xde  Code  Gb  SEEKFREE_OLED.o [1]
 DisplayInt                   0x1567   0x70  Code  Gb  SEEKFREE_OLED.o [1]
-F6x8                         0x52e0  0x228  Data  Gb  SEEKFREE_OLED.o [1]
+F6x8                         0x5470  0x228  Data  Gb  SEEKFREE_OLED.o [1]
 FTMN                    0x1fff'0b20    0xc  Data  Gb  MK60_ftm.o [1]
 FTM_port_mux                 0x17cd  0x114  Code  Lc  MK60_ftm.o [1]
 GPIOX                   0x1fff'0b2c   0x14  Data  Gb  MK60_gpio.o [1]
-GetData                      0x4aef   0x2c  Code  Gb  SEEKFREE_MPU6050 2.o [1]
-Get_AccData                  0x4b1b   0x28  Code  Gb  SEEKFREE_MPU6050 2.o [1]
-Get_Gyro                     0x4b43   0x28  Code  Gb  SEEKFREE_MPU6050 2.o [1]
-I2C_SendACK                  0x4ecf   0x44  Code  Gb  SEEKFREE_IIC.o [1]
-IIC_init                     0x50a7   0x28  Code  Gb  SEEKFREE_IIC.o [1]
-IIC_start                    0x4e73   0x2c  Code  Gb  SEEKFREE_IIC.o [1]
-IIC_stop                     0x4e9f   0x30  Code  Gb  SEEKFREE_IIC.o [1]
-InitMPU6050                  0x4aa5   0x4a  Code  Gb  SEEKFREE_MPU6050 2.o [1]
+GetData                      0x4b5f   0x2c  Code  Gb  SEEKFREE_MPU6050 2.o [1]
+Get_AccData                  0x4b8b   0x28  Code  Gb  SEEKFREE_MPU6050 2.o [1]
+Get_Gyro                     0x4bb3   0x28  Code  Gb  SEEKFREE_MPU6050 2.o [1]
+I2C_SendACK                  0x505f   0x44  Code  Gb  SEEKFREE_IIC.o [1]
+IIC_init                     0x5237   0x28  Code  Gb  SEEKFREE_IIC.o [1]
+IIC_start                    0x5003   0x2c  Code  Gb  SEEKFREE_IIC.o [1]
+IIC_stop                     0x502f   0x30  Code  Gb  SEEKFREE_IIC.o [1]
+InitMPU6050                  0x4b15   0x4a  Code  Gb  SEEKFREE_MPU6050 2.o [1]
 KEY_PTxn                0x1fff'0bb4    0x8  Data  Gb  VCAN_key.o [1]
 LED_PTxn                0x1fff'0bbc    0x4  Data  Gb  VCAN_LED.o [1]
 LoadInt                      0x29d9   0x7a  Code  Lc  xprintflarge_nomb.o [2]
-NVIC_EnableIRQ               0x5a31   0x16  Code  Lc  main.o [1]
+NVIC_EnableIRQ               0x5bc1   0x16  Code  Lc  main.o [1]
 NVIC_SystemReset             0x2345   0x18  Code  Lc  MK60_conf.o [1]
 OLED_DLY_ms                  0x1241   0x1e  Code  Gb  SEEKFREE_OLED.o [1]
 OLED_Fill                    0x128f   0x42  Code  Gb  SEEKFREE_OLED.o [1]
@@ -449,12 +453,12 @@ OLED_Set_Pos                 0x125f   0x30  Code  Gb  SEEKFREE_OLED.o [1]
 OLED_WrCmd                   0x11f5   0x4c  Code  Gb  SEEKFREE_OLED.o [1]
 OLED_WrDat                   0x11a9   0x4c  Code  Gb  SEEKFREE_OLED.o [1]
 OLED_clear                   0x144b   0x3e  Code  Gb  SEEKFREE_OLED.o [1]
-PIT0_IRQHandler              0x5acd   0x12  Code  Gb  main.o [1]
+PIT0_IRQHandler              0x5c5d   0x12  Code  Gb  main.o [1]
 PORTX                   0x1fff'0b88   0x14  Data  Gb  MK60_port.o [1]
-Region$$Table$$Base          0x5f18          --   Gb  - Linker created -
-Region$$Table$$Limit         0x5f28          --   Gb  - Linker created -
+Region$$Table$$Base          0x60bc          --   Gb  - Linker created -
+Region$$Table$$Limit         0x60cc          --   Gb  - Linker created -
 Reset_Handler                 0x411         Code  Gb  startup_MK60DZ10.o [1]
-SCCB_WaitAck                 0x4f13   0x58  Code  Lc  SEEKFREE_IIC.o [1]
+SCCB_WaitAck                 0x50a3   0x58  Code  Lc  SEEKFREE_IIC.o [1]
 Set_Mt_PID_list               0x76d  0x2ca  Code  Gb  OLED_list.o [1]
 Set_Parameters_int            0xf41  0x1e2  Code  Gb  OLED_list.o [1]
 Set_Parameters_list           0xd29  0x212  Code  Gb  OLED_list.o [1]
@@ -467,7 +471,7 @@ _LdtobLargeNoMb              0x2f0f  0x232  Code  Lc  xprintflarge_nomb.o [2]
 _LitobLargeNoMb              0x2dbf  0x10a  Code  Lc  xprintflarge_nomb.o [2]
 _Locale_lconv           0x1fff'0bc0   0x38  Data  Lc  xlocale_c.o [2]
 _PrintfLargeNoMb             0x2835  0x19e  Code  Gb  xprintflarge_nomb.o [2]
-_Prout                       0x5f95   0x16  Code  Gb  xprout.o [2]
+_Prout                       0x6139   0x16  Code  Gb  xprout.o [2]
 _PutcharsLargeNoMb           0x33b5   0x2e  Code  Lc  xprintflarge_nomb.o [2]
 _PutfldLargeNoMb             0x2a53  0x260  Code  Lc  xprintflarge_nomb.o [2]
 _PuttxtLargeNoMb             0x2cb3  0x10c  Code  Lc  xprintflarge_nomb.o [2]
@@ -475,77 +479,79 @@ __BOOT_STACK_ADDRESS {Abs}
                         0x2000'fff8         Data  Gb  <internal module>
 __VECTOR_RAM {Abs}      0x1fff'0000         Data  Gb  <internal module>
 __VECTOR_TABLE {Abs}            0x0         Data  Gb  <internal module>
-__aeabi_cfrcmple             0x4a5d         Code  Gb  FltCmpGe.o [3]
-__aeabi_d2f                  0x4c91         Code  Gb  DblToFlt.o [3]
+__aeabi_cfcmple              0x4fd1         Code  Gb  FltCmpLe.o [3]
+__aeabi_cfrcmple             0x4acd         Code  Gb  FltCmpGe.o [3]
+__aeabi_d2f                  0x4d01         Code  Gb  DblToFlt.o [3]
 __aeabi_d2iz                 0x1e65         Code  Gb  DblToS32.o [3]
 __aeabi_d2uiz                0x3a1d         Code  Gb  DblToU32.o [3]
 __aeabi_dadd                 0x1ce9         Code  Gb  DblAdd.o [3]
 __aeabi_ddiv                 0x37d5         Code  Gb  DblDiv.o [3]
 __aeabi_dmul                 0x2191         Code  Gb  DblMul.o [3]
 __aeabi_dsub                 0x20ad         Code  Gb  DblSub.o [3]
-__aeabi_f2d                  0x4cf9         Code  Gb  FltToDbl.o [3]
-__aeabi_f2uiz                0x4a81         Code  Gb  FltToU32.o [3]
-__aeabi_fadd                 0x4d41         Code  Gb  FltAdd.o [3]
-__aeabi_fmul                 0x4961         Code  Gb  FltMul.o [3]
-__aeabi_fsub                 0x48e1         Code  Gb  FltSub.o [3]
+__aeabi_f2d                  0x4d69         Code  Gb  FltToDbl.o [3]
+__aeabi_f2uiz                0x4af1         Code  Gb  FltToU32.o [3]
+__aeabi_fadd                 0x4db1         Code  Gb  FltAdd.o [3]
+__aeabi_fdiv                 0x4e95         Code  Gb  FltDiv.o [3]
+__aeabi_fmul                 0x49d1         Code  Gb  FltMul.o [3]
+__aeabi_fsub                 0x4951         Code  Gb  FltSub.o [3]
 __aeabi_i2d                  0x1cc5         Code  Gb  S32ToDbl.o [3]
-__aeabi_i2f                  0x4a39         Code  Gb  S32ToFlt.o [3]
+__aeabi_i2f                  0x4aa9         Code  Gb  S32ToFlt.o [3]
 __aeabi_ldiv0                0x3a71         Code  Gb  I64DivZer.o [4]
 __aeabi_memcpy               0x15e9         Code  Gb  ABImemcpy.o [4]
 __aeabi_memcpy4              0x1609         Code  Gb  ABImemcpy.o [4]
 __aeabi_memcpy8              0x1609         Code  Gb  ABImemcpy.o [4]
 __aeabi_ui2d                 0x3a45         Code  Gb  U32ToDbl.o [3]
 __aeabi_uldivmod             0x3535         Code  Gb  I64DivMod.o [4]
-__cmain                      0x5f49         Code  Gb  cmain.o [4]
+__cmain                      0x60ed         Code  Gb  cmain.o [4]
 __code_start__ {Abs}          0x410         Data  Gb  <internal module>
 __exit                       0x3a75         Code  Gb  XXexit.o [4]
-__iar_Atan64                 0x50d1  0x210  Code  Gb  iar_Atan64.o [3]
+__iar_Atan64                 0x5261  0x210  Code  Gb  iar_Atan64.o [3]
 __iar_Fail_s                 0x3465   0x1c  Code  Gb  xfail_s.o [2]
 __iar_Memchr                 0x34dd         Code  Gb  memchr.o [4]
 __iar_Stdout            0x1fff'0bf8   0x48  Data  Gb  xfiles.o [2]
 __iar_Strchr                 0x344d         Code  Gb  strchr.o [4]
-__iar_atan2_64               0x4b85   0xfe  Code  Gb  atan2_64.o [3]
+__iar_atan2_64               0x4bf5   0xfe  Code  Gb  atan2_64.o [3]
 __iar_dadd                   0x20bd         Code  Gb  DblSub.o [3]
-__iar_data_init3             0x5ecd   0x28  Code  Gb  data_init.o [4]
+__iar_data_init3             0x6071   0x28  Code  Gb  data_init.o [4]
 __iar_dsub                   0x1cf9         Code  Gb  DblAdd.o [3]
 __iar_dsubStart              0x1d0b         Code  Gb  DblAdd.o [3]
-__iar_fadd                   0x48ed         Code  Gb  FltSub.o [3]
+__iar_fadd                   0x495d         Code  Gb  FltSub.o [3]
 __iar_frexp                  0x3771         Code  Gb  frexp.o [3]
 __iar_frexp64                0x3765         Code  Gb  frexp.o [3]
 __iar_frexpl                 0x3771         Code  Gb  frexp.o [3]
-__iar_fsub                   0x4d4d         Code  Gb  FltAdd.o [3]
-__iar_fsubStart              0x4d5d         Code  Gb  FltAdd.o [3]
-__iar_program_start          0x6051         Code  Gb  cstartup_M.o [4]
+__iar_fsub                   0x4dbd         Code  Gb  FltAdd.o [3]
+__iar_fsubStart              0x4dcd         Code  Gb  FltAdd.o [3]
+__iar_program_start          0x61f5         Code  Gb  cstartup_M.o [4]
 __iar_zero_init3             0x168f   0x3a  Code  Gb  zero_init3.o [4]
-__low_level_init             0x5f67    0x4  Code  Gb  low_level_init.o [2]
+__low_level_init             0x610b    0x4  Code  Gb  low_level_init.o [2]
 __vector_table                  0x0  0x410  Data  Gb  vectors.o [1]
-_call_main                   0x5f55         Code  Gb  cmain.o [4]
-_exit                        0x5f71         Code  Gb  cexit.o [4]
-_main                        0x5f63         Code  Gb  cmain.o [4]
-a                            0x5cb0   0x40  Data  Lc  iar_Atan64.o [3]
+_call_main                   0x60f9         Code  Gb  cmain.o [4]
+_exit                        0x6115         Code  Gb  cexit.o [4]
+_main                        0x6107         Code  Gb  cmain.o [4]
+a                            0x5e90   0x40  Data  Lc  iar_Atan64.o [3]
 abort                        0x3a69    0x6  Code  Gb  abort.o [2]
 abs                          0x20a5    0x8  Code  Gb  abs.o [2]
 accel_Angle             0x1fff'0e44    0x4  Data  Gb  control.o [1]
-adc_init                     0x5509  0x202  Code  Gb  MK60_adc.o [1]
+adc_init                     0x5699  0x202  Code  Gb  MK60_adc.o [1]
 angle                   0x1fff'0e48    0x4  Data  Gb  control.o [1]
 angle_target            0x1fff'0414    0x4  Data  Gb  control.o [1]
 assert_failed                0x235d   0x26  Code  Gb  MK60_conf.o [1]
-atan2                        0x4b85   0xfe  Code  Gb  atan2_64.o [3]
-atan2l                       0x4b85   0xfe  Code  Gb  atan2_64.o [3]
-balance                      0x4661   0xde  Code  Gb  control.o [1]
+atan2                        0x4bf5   0xfe  Code  Gb  atan2_64.o [3]
+atan2l                       0x4bf5   0xfe  Code  Gb  atan2_64.o [3]
+balance                      0x4661   0xe2  Code  Gb  control.o [1]
 balance1                0x1fff'0e4c    0x4  Data  Gb  control.o [1]
 balance_Gyro            0x1fff'0e40    0x4  Data  Gb  control.o [1]
 balance_angle           0x1fff'0410    0x4  Data  Gb  control.o [1]
 bus_clk_khz             0x1fff'0eac    0x4  Data  Gb  system_MK60DZ10.o [1]
-common_startup               0x5933   0x84  Code  Gb  system_MK60DZ10.o [1]
+common_startup               0x5ac3   0x84  Code  Gb  system_MK60DZ10.o [1]
 core_clk_khz            0x1fff'0ea4    0x4  Data  Gb  system_MK60DZ10.o [1]
 core_clk_mhz            0x1fff'0ea8    0x4  Data  Gb  system_MK60DZ10.o [1]
 default_isr                  0x2433   0x32  Code  Gb  MK60_conf.o [1]
 desired_value           0x1fff'0e78    0x4  Data  Gb  OLED_list.o [1]
-duty_40ms                    0x5bd1   0x14  Code  Gb  loop.o [1]
-duty_4ms                     0x5bb9    0x8  Code  Gb  loop.o [1]
-duty_8ms                     0x5bc1   0x10  Code  Gb  loop.o [1]
-exit                         0x5f6b    0x4  Code  Gb  exit.o [2]
+duty_40ms                    0x5d61   0x14  Code  Gb  loop.o [1]
+duty_4ms                     0x5d49    0x8  Code  Gb  loop.o [1]
+duty_8ms                     0x5d51   0x10  Code  Gb  loop.o [1]
+exit                         0x610f    0x4  Code  Gb  exit.o [2]
 firstlist                     0x4f3  0x194  Code  Gb  OLED_list.o [1]
 flash_cmd               0x1fff'0c51   0x1c  Code  Gb  MK60_flash.o [1]
 flash_erase_sector      0x1fff'0c97   0x58  Code  Gb  MK60_flash.o [1]
@@ -560,7 +566,7 @@ ftm_pwm_init                 0x18e1  0x184  Code  Gb  MK60_ftm.o [1]
 ftm_quad_clean               0x1c7f   0x2e  Code  Gb  MK60_ftm.o [1]
 ftm_quad_get                 0x1c51   0x2e  Code  Gb  MK60_ftm.o [1]
 ftm_quad_init                0x1b49  0x108  Code  Gb  MK60_ftm.o [1]
-getAngle                     0x473f   0xf4  Code  Gb  control.o [1]
+getAngle                     0x4743  0x10c  Code  Gb  control.o [1]
 gpio_ddr                     0x1f57   0x58  Code  Gb  MK60_gpio.o [1]
 gpio_get                     0x205f   0x3c  Code  Gb  MK60_gpio.o [1]
 gpio_init                    0x1ea1   0xb6  Code  Gb  MK60_gpio.o [1]
@@ -574,8 +580,8 @@ key_init                     0x1729   0x58  Code  Gb  VCAN_key.o [1]
 led_init                     0x253d   0x40  Code  Gb  VCAN_LED.o [1]
 led_turn                     0x257d   0x38  Code  Gb  VCAN_LED.o [1]
 localeconv                   0x3a61    0x4  Code  Gb  xlocale_c.o [2]
-loop_run                     0x5be5   0xae  Code  Gb  loop.o [1]
-main                         0x5a47   0x84  Code  Gb  main.o [1]
+loop_run                     0x5d75   0xbe  Code  Gb  loop.o [1]
+main                         0x5bd7   0x84  Code  Gb  main.o [1]
 mcg_cfg                 0x1fff'0b40   0x44  Data  Gb  MK60_mcg.o [1]
 mcg_div                 0x1fff'0b84    0x4  Data  Gb  MK60_mcg.o [1]
 mcg_div_count                0x42b9  0x2f4  Code  Gb  MK60_mcg.o [1]
@@ -591,48 +597,48 @@ mpu_gyro_y              0x1fff'0e84    0x4  Data  Gb  SEEKFREE_MPU6050 2.o [1]
 mpu_gyro_z              0x1fff'0e88    0x4  Data  Gb  SEEKFREE_MPU6050 2.o [1]
 obuf                    0x1fff'0eb4   0x50  Data  Lc  xfiles.o [2]
 out                     0x1fff'0e28   0x18  Data  Gb  control.o [1]
-pit_init                     0x5b3d   0x6c  Code  Gb  MK60_PIT.o [1]
+pit_init                     0x5ccd   0x6c  Code  Gb  MK60_PIT.o [1]
 pll_init                     0x45ad   0x96  Code  Gb  MK60_mcg.o [1]
 port_init                    0x2485   0x48  Code  Gb  MK60_port.o [1]
 port_init_NoALT              0x24cd   0x68  Code  Gb  MK60_port.o [1]
 printf                       0x25bd   0x28  Code  Gb  printf.o [2]
-putchar                      0x5fad    0xc  Code  Gb  putchar.o [2]
-read_ch                      0x4fb3   0x7c  Code  Gb  SEEKFREE_IIC.o [1]
+putchar                      0x6151    0xc  Code  Gb  putchar.o [2]
+read_ch                      0x5143   0x7c  Code  Gb  SEEKFREE_IIC.o [1]
 scale                        0x2ec9   0x46  Code  Lc  xprintflarge_nomb.o [2]
 sec_hand                0x1fff'0eb0    0x4  Data  Lc  xfail_s.o [2]
-send_ch                      0x4f6b   0x48  Code  Gb  SEEKFREE_IIC.o [1]
+send_ch                      0x50fb   0x48  Code  Gb  SEEKFREE_IIC.o [1]
 servo_D                 0x1fff'0e20    0x8  Data  Gb  OLED_list.o [1]
 servo_P                 0x1fff'0e18    0x8  Data  Gb  OLED_list.o [1]
 servo_mid               0x1fff'0e7c    0x4  Data  Gb  OLED_list.o [1]
-setSpeed                     0x487d    0x6  Code  Gb  control.o [1]
+setSpeed                     0x48d1    0x6  Code  Gb  control.o [1]
 set_sys_dividers        0x1fff'0db5   0x48  Code  Gb  MK60_mcg.o [1]
-set_vector_handler           0x5b0f   0x22  Code  Gb  misc.o [1]
-simiic_delay                 0x4e65    0xe  Code  Gb  SEEKFREE_IIC.o [1]
-simiic_read_reg              0x5059   0x4e  Code  Gb  SEEKFREE_IIC.o [1]
-simiic_write_reg             0x502f   0x2a  Code  Gb  SEEKFREE_IIC.o [1]
+set_vector_handler           0x5c9f   0x22  Code  Gb  misc.o [1]
+simiic_delay                 0x4ff5    0xe  Code  Gb  SEEKFREE_IIC.o [1]
+simiic_read_reg              0x51e9   0x4e  Code  Gb  SEEKFREE_IIC.o [1]
+simiic_write_reg             0x51bf   0x2a  Code  Gb  SEEKFREE_IIC.o [1]
 speed                   0x1fff'0e58    0x4  Data  Gb  control.o [1]
 speed_left              0x1fff'0e50    0x4  Data  Gb  control.o [1]
 speed_right             0x1fff'0e54    0x4  Data  Gb  control.o [1]
 speed_sum               0x1fff'0e5c    0x4  Data  Gb  control.o [1]
 speed_target            0x1fff'0e60    0x4  Data  Lc  control.o [1]
-start                        0x58d9   0x22  Code  Gb  system_MK60DZ10.o [1]
+start                        0x5a69   0x22  Code  Gb  system_MK60DZ10.o [1]
 start_check                  0x2397   0x9c  Code  Gb  MK60_conf.o [1]
 str                     0x1fff'0e98    0xc  Data  Gb  SEEKFREE_OLED.o [1]
 strchr                       0x344d         Code  Gb  strchr.o [4]
 strcpy_rewrite                0x457   0x10  Code  Gb  OLED_list.o [1]
 strlen                       0x34a5         Code  Gb  strlen.o [4]
-sysinit                      0x58fb   0x38  Code  Gb  system_MK60DZ10.o [1]
+sysinit                      0x5a8b   0x38  Code  Gb  system_MK60DZ10.o [1]
 systick_delay                0x16c9   0x32  Code  Gb  MK60_SysTick.o [1]
 systick_delay_ms             0x16fb   0x18  Code  Gb  MK60_SysTick.o [1]
 uart_init                    0x25e5  0x1f6  Code  Gb  MK60_uart.o [1]
 uart_putbuff                 0x27f7   0x26  Code  Gb  MK60_uart.o [1]
 uart_putchar                 0x27db   0x1c  Code  Gb  MK60_uart.o [1]
-vcan_sendware                0x4e25   0x38  Code  Gb  VCAN_computer.o [1]
+vcan_sendware                0x4f91   0x38  Code  Gb  VCAN_computer.o [1]
 vector_str              0x1fff'0418  0x708  Data  Gb  MK60_conf.o [1]
-velocity                     0x4833   0x4a  Code  Gb  control.o [1]
-wdog_disable                 0x59f1   0x14  Code  Gb  MK60_wdog.o [1]
-wdog_unlock                  0x5a05   0x20  Code  Lc  MK60_wdog.o [1]
-write_vtor                   0x5aed   0x22  Code  Gb  misc.o [1]
+velocity                     0x484f   0x82  Code  Gb  control.o [1]
+wdog_disable                 0x5b81   0x14  Code  Gb  MK60_wdog.o [1]
+wdog_unlock                  0x5b95   0x20  Code  Lc  MK60_wdog.o [1]
+write_vtor                   0x5c7d   0x22  Code  Gb  misc.o [1]
 
 
 [1] = D:\IAR-workspace\Kinetis_MK60\Prj\IAR\DZ10_Debug\Obj
@@ -640,7 +646,7 @@ write_vtor                   0x5aed   0x22  Code  Gb  misc.o [1]
 [3] = m7M_tl.a
 [4] = rt7M_tl.a
 
-  19 730 bytes of readonly  code memory
+  20 150 bytes of readonly  code memory
      444 bytes of readwrite code memory
    4 958 bytes of readonly  data memory
    2 356 bytes of readwrite data memory
