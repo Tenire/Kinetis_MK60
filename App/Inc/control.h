@@ -8,11 +8,13 @@
 extern float angle;
 extern float out[6];
 extern float speed_target;
+extern float balance_pwm;
+extern float turn_pwm;
 
 void balance(float angle,int gyro);
 void getAngle();
 void velocity();
-
-void setSpeed(float speedd);
+void turn();
+void motorControl(float left_pwm,float right_pwm);
 
 #endif

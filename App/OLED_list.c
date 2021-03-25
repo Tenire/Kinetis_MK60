@@ -130,7 +130,7 @@ void firstlist()
       case 1:Set_Sv_PID_list();break;
       case 2:Set_Sv_MID_list();break;
       case 3:break;
-      case 4:i=1;OLED_clear();DELAY_MS(1000);break;
+      case 4:i=1;OLED_clear();DELAY_MS(10000);break;
       }
   }
 }

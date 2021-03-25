@@ -38,10 +38,13 @@ void main()
 	ftm_quad_init(FTM1);
 	ftm_quad_init(FTM2);
 	
-	//PIT
-	pit_init_ms(PIT0,1);	
-	set_vector_handler(PIT0_VECTORn ,PIT0_IRQHandler);
-	enable_irq (PIT0_IRQn);
+	//adc
+	adc_init(ADC0_DP0);
+	adc_init(ADC1_DM1);
+	adc_init(ADC1_DP1);
+	adc_init(ADC0_DM1);
+	adc_init(ADC0_DP1);
+	
 	
 	//电机
 	ftm_pwm_init(FTM0,FTM_CH4,13*1000,0);//左反
@@ -50,13 +53,18 @@ void main()
 	ftm_pwm_init(FTM0,FTM_CH6,13*1000,0);//右反
 	ftm_pwm_init(FTM0,FTM_CH7,13*1000,0);//右正
 	
+	//PIT
+	pit_init_ms(PIT0,1);	
+	set_vector_handler(PIT0_VECTORn ,PIT0_IRQHandler);
+	enable_irq (PIT0_IRQn);
+	
+	
 	//OLED
 	OLED_Init();
 	firstlist();
 	
-	//adc
-	adc_init(ADC1_DP1);
-	adc_init(ADC1_DM1);
+	
+	
 	while(1)
 	{
 		
