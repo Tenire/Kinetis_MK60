@@ -10,6 +10,7 @@ extern float out[6];
 extern float speed_target;
 extern float balance_pwm;
 extern float turn_pwm;
+extern int8 onTheTrack;
 
 void balance(float angle,int gyro);
 void getAngle();

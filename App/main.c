@@ -63,8 +63,6 @@ void main()
 	OLED_Init();
 	firstlist();
 	
-	
-	
 	while(1)
 	{
 		

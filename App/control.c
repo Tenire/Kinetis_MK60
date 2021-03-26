@@ -16,10 +16,10 @@ float accel_Angle;
 float angle;
 
 //平衡角度
-float balance_angle=41.5;
+float balance_angle=40;
 
 //目标角度
-float angle_target=41.5;
+float angle_target=40;
 
 //左轮速度
 float speed_left;
@@ -38,15 +38,15 @@ float turn_error;
 float turn_error_last;
 
 //目标速度
-static float speed_target=0;
+static float speed_target=25;
 
 //直立pwm
-float balance_pwm;
+float balance_pwm=0;
 //转向pwm
 float turn_pwm=0;
 
 //是否在赛道中
-int8 onTheTrack;
+int8 onTheTrack=0;
 
 void balance(float angle,int gyro)
 {
@@ -114,16 +114,18 @@ void getAngle()
 	angle=Filter_Weight*accel_Angle+(1-Filter_Weight)*(angle-balance_Gyro*gyro_dt);
 	
 	//速度
-	speed_right=0.7*ftm_quad_get(FTM1)+0.3*speed_right;
+	speed_right=0.7*(-ftm_quad_get(FTM1))+0.3*speed_right;
 	ftm_quad_clean(FTM1);
-	speed_left=0.7*(-ftm_quad_get(FTM2))+0.3*speed_left;
+	
+	speed_left=0.7*(ftm_quad_get(FTM2))+0.3*speed_left;
 	ftm_quad_clean(FTM2);
+	
 	speed=(speed_left+speed_right)/2;
 	
 	
-	out[0]=accel_Angle;
+	out[0]=onTheTrack;
 	out[1]=angle;
-	out[2]=balance_pwm;
+	out[2]=-balance_pwm;
 	out[3]=speed_sum;
 	out[4]=speed;
 	out[5]=speed_target;
@@ -164,7 +166,7 @@ void velocity()
 
 void turn()
 {
-	float kp,kd;
+	float kp=0.1,kd;
 	float turn;
 	float adc_weight=0.5;
 	adc[0]=adc_weight*adc_once(ADC0_DP0,ADC_16bit)+(1-adc_weight)*adc[0];
@@ -172,23 +174,28 @@ void turn()
 	adc[2]=adc_weight*adc_once(ADC0_DM1,ADC_16bit)+(1-adc_weight)*adc[2];
 	adc[3]=adc_weight*adc_once(ADC0_DP1,ADC_16bit)+(1-adc_weight)*adc[3];
 	vcan_sendware(adc,sizeof(adc));
-	if((adc[0]+adc[1]+adc[2]+adc[3])/4>1200)
+	
+	
+	if((adc[0]+adc[1]+adc[2]+adc[3])/4>2000)
 	{
 		onTheTrack=1;
 	}else
 	{
 		onTheTrack=0;
 	}
+	
+	
 	if(adc[1]+adc[2]!=0)
 	{
-		turn_error=-(adc[1]-adc[2])/(adc[1]+adc[2]);
+		turn_error=(adc[1]-adc[2])/(adc[1]+adc[2])*100;
 	}
 	else
 	{
-		turn_error=-(adc[1]-adc[2])/1;
+		turn_error=(adc[1]-adc[2])/1*100;
 	}
 	turn=kp*turn_error+kd*(turn_error-turn_error_last);
-	
+	turn_pwm=turn;
+	vcan_sendware(adc,sizeof(adc));
 }
 
 void motorControl(float left_pwm,float right_pwm)
