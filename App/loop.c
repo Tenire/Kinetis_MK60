@@ -14,7 +14,7 @@ void duty_4ms()
 void duty_8ms()
 {
 	balance(angle,mpu_gyro_x);
-	turn();
+	//turn();
 	
 	if(onTheTrack)
 	{
@@ -24,11 +24,11 @@ void duty_8ms()
 	{
 		motorControl(0,0);
 	}
-	
+	motorControl(balance_pwm+turn_pwm,balance_pwm-turn_pwm);
 }
 void duty_80ms()
 {
-	velocity();
+	//velocity();
 }
 
 void duty_500ms()

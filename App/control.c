@@ -16,10 +16,10 @@ float accel_Angle;
 float angle;
 
 //平衡角度
-float balance_angle=40;
+float balance_angle=37.5;
 
 //目标角度
-float angle_target=40;
+float angle_target=37.5;
 
 //左轮速度
 float speed_left;
@@ -51,11 +51,11 @@ int8 onTheTrack=0;
 void balance(float angle,int gyro)
 {
 	//P,D
-	float bias,kp=8,kd=0.125;
+	float bias,kp=64,kd=0.125;
 	//角度偏差
-	bias=angle_target-angle;
+	bias=angle-angle_target;
 	//float balance;
-	balance_pwm=kp*bias+kd*gyro;
+	balance_pwm=kp*bias-kd*gyro;
 	
 	/*
 	//限幅
@@ -123,9 +123,9 @@ void getAngle()
 	speed=(speed_left+speed_right)/2;
 	
 	
-	out[0]=onTheTrack;
+	out[0]=accel_Angle;
 	out[1]=angle;
-	out[2]=-balance_pwm;
+	out[2]=balance_pwm/10;
 	out[3]=speed_sum;
 	out[4]=speed;
 	out[5]=speed_target;
@@ -204,46 +204,54 @@ void motorControl(float left_pwm,float right_pwm)
 	//左限幅
 	if(left_pwm>0)
 	{
-		if(left_pwm>99)
+		if(left_pwm>999)
 		{
-			left_pwm=99;
+			left_pwm=999;
 		}
 		
-		ftm_pwm_duty(FTM0,FTM_CH5,0);
-		ftm_pwm_duty(FTM0,FTM_CH4,left_pwm);
+		ftm_pwm_duty(FTM0,FTM_CH4,0);
+		ftm_pwm_duty(FTM0,FTM_CH5,left_pwm);
+		
 		
 	}else
 	{
 		left_pwm=-left_pwm;
-		if(left_pwm>99)
+		if(left_pwm>999)
 		{
-			left_pwm=99;
+			left_pwm=999;
 		}
-		ftm_pwm_duty(FTM0,FTM_CH4,0);
-		ftm_pwm_duty(FTM0,FTM_CH5,left_pwm);
+		
+		
+		ftm_pwm_duty(FTM0,FTM_CH5,0);
+		ftm_pwm_duty(FTM0,FTM_CH4,left_pwm);
+		
 		
 	}
 	
 	//右限幅
 	if(right_pwm>0)
 	{
-		if(right_pwm>99)
+		if(right_pwm>999)
 		{
-			right_pwm=99;
+			right_pwm=999;
 		}
 		
-		ftm_pwm_duty(FTM0,FTM_CH7,0);
-		ftm_pwm_duty(FTM0,FTM_CH6,right_pwm);
+		ftm_pwm_duty(FTM0,FTM_CH6,0);
+		ftm_pwm_duty(FTM0,FTM_CH7,right_pwm);
 		
 	}else
 	{
 		right_pwm=-right_pwm;
-		if(right_pwm>99)
+		if(right_pwm>999)
 		{
-			right_pwm=99;
+			right_pwm=999;
 		}
-		ftm_pwm_duty(FTM0,FTM_CH6,0);
-		ftm_pwm_duty(FTM0,FTM_CH7,right_pwm);
+		
+		
+		
+		ftm_pwm_duty(FTM0,FTM_CH7,0);
+		ftm_pwm_duty(FTM0,FTM_CH6,right_pwm);
+		
 	}
 }
 
