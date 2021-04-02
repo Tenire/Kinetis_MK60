@@ -35,8 +35,8 @@
 
 
 
-#define SEEKFREE_SCL    PTB2                           //定义SCL引脚  可任意更改为其他IO
-#define SEEKFREE_SDA    PTB1                          //定义SDA引脚  可任意更改为其他IO
+#define SEEKFREE_SCL    PTB1                           //定义SCL引脚  可任意更改为其他IO
+#define SEEKFREE_SDA    PTB0                          //定义SDA引脚  可任意更改为其他IO
 
 typedef enum IIC       //DAC模块
 {

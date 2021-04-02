@@ -12,7 +12,6 @@ int desired_value;
 int servo_mid;
 
 
-
 void Clean_Key_Position()
 {
   uint8 y=0,i=0;

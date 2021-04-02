@@ -7,10 +7,10 @@
 #define word unsigned int   //自己加的
 
 //----宏定义OLED引脚----	 
-#define  OLED_SCL_PIN	PTD3
-#define  OLED_SDA_PIN	PTD2
-#define  OLED_RST_PIN	PTD1
-#define  OLED_DC_PIN	PTD0
+#define  OLED_SCL_PIN	PTB20
+#define  OLED_SDA_PIN	PTB19
+#define  OLED_RST_PIN	PTB18
+#define  OLED_DC_PIN	PTB17
 //#define  OLED_CS_PIN		PTB16
 
 extern unsigned char str[10];

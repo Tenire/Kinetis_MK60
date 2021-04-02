@@ -13,7 +13,7 @@ void duty_4ms()
 
 void duty_8ms()
 {
-	balance(angle,mpu_gyro_x);
+	balance();
 	turn();
 	
 	if(onTheTrack)

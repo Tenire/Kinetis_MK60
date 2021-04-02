@@ -12,10 +12,11 @@ extern float balance_pwm;
 extern float turn_pwm;
 extern int8 onTheTrack;
 
-void balance(float angle,int gyro);
+void balance();
 void getAngle();
 void velocity();
 void turn();
 void motorControl(float left_pwm,float right_pwm);
+int16 getADC(ADCn_Ch_e adcn_ch);
 
 #endif

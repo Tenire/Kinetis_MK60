@@ -43,7 +43,7 @@ void  port_init(PTXn_e ptxn, uint32 cfg )
  *  @param      cfg     端口属性配置，如触发选项和上拉下拉选项
  *  @since      v5.0
  *  @note       与port_init不同的是，此函数不需要配置 MUX 复用功能（即使配置了也不生效），
-                MUX 保留 为原先寄存器配置的值
+                MUX 保留 为原先寄存器配置的值 
  *  Sample usage:       port_init_NoALT (PTA8, IRQ_RISING | PF | PULLUP );    //初始化 PTA8 管脚，上升沿触发中断，带无源滤波器，保留原先复用功能，上拉电阻
  */
 void  port_init_NoALT(PTXn_e ptxn, uint32 cfg)
