@@ -39,7 +39,7 @@ void main()
 	InitMPU6050();
 	
 	//´®¿Ú
-	uart_init(UART0,115200);
+	uart_init(UART1,115200);
 	
 	//±àÂëÆ÷
 	ftm_quad_init(FTM1);
