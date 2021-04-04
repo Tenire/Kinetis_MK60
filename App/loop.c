@@ -28,7 +28,10 @@ void duty_8ms()
 }
 void duty_80ms()
 {
-	velocity();
+	if(j>2000)
+	{
+		velocity();
+	}
 }
 
 void duty_500ms()
@@ -61,7 +64,7 @@ void loop_run()
 	{
 		i++;
 	}
-	
+	j++;
 }
 
 

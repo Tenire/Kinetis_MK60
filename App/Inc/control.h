@@ -18,5 +18,6 @@ void velocity();
 void turn();
 void motorControl(float left_pwm,float right_pwm);
 int16 getADC(ADCn_Ch_e adcn_ch);
+void Ring_Control();
 
 #endif
