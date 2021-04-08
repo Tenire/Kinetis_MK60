@@ -30,6 +30,7 @@
 #include "SEEKFREE_MPU6050 2.h"
 #include "SEEKFREE_IIC.h"
 
+
 void PIT0_IRQHandler();
 
 void main()
@@ -39,7 +40,7 @@ void main()
 	InitMPU6050();
 	
 	//串口
-	uart_init(UART1,115200);
+	uart_init(UART5,115200);
 	
 	//编码器
 	ftm_quad_init(FTM1);
@@ -47,18 +48,18 @@ void main()
 	
 	//adc
 	adc_init(ADC0_DM1);
-	adc_init(ADC1_DP1);
-	adc_init(ADC1_DM1);
-	adc_init(ADC0_DP0);
+	adc_init(ADC1_DP0);
 	adc_init(ADC0_DM0);
+	adc_init(ADC1_DP1);
+	adc_init(ADC0_DP1);
 	
 	
 	//电机
-	ftm_pwm_init(FTM0,FTM_CH0,13*1000,0);//左反
-	ftm_pwm_init(FTM0,FTM_CH1,13*1000,0);//左正
+	ftm_pwm_init(FTM0,FTM_CH0,13*1000,0);//右正
+	ftm_pwm_init(FTM0,FTM_CH7,13*1000,0);//右反
 	
-	ftm_pwm_init(FTM0,FTM_CH2,13*1000,0);//右反
-	ftm_pwm_init(FTM0,FTM_CH3,13*1000,0);//右正
+	ftm_pwm_init(FTM0,FTM_CH6,13*1000,0);//左正
+	ftm_pwm_init(FTM0,FTM_CH5,13*1000,0);//左反
 	
 	//PIT
 	pit_init_ms(PIT0,1);	
@@ -90,6 +91,11 @@ void PIT0_IRQHandler()
 	
 	PIT_Flag_Clear(PIT0);
 }
+
+
+
+
+
 
 
 

@@ -4,7 +4,10 @@
 float out[6];
 
 //不同速度下转向参数,p,i
-float turn_params[3][2]={{0.05,0},{0.05,0},{0.05,0}};
+float turn_params[3][2]={
+	{0.05,0},
+	{0.05,0},
+	{0.05,0}};
 
 //速度档位
 int velocity_gear=0;
@@ -22,10 +25,10 @@ float accel_Angle;
 float angle;
 
 //平衡角度
-float balance_angle=43;
+float balance_angle=-16;
 
 //目标角度
-float angle_target=43;
+float angle_target=-16;
 
 //左轮速度
 float speed_left;
@@ -44,7 +47,7 @@ float turn_bias;
 float turn_bias_last;
 
 //目标速度
-static float speed_target=20;
+static float speed_target=0;
 
 //直立pwm
 float balance_pwm=0;
@@ -59,19 +62,19 @@ float bias;
 void balance()
 {
 	//P,D
-	float kp=8,kd=0.125;
+	float kp=16,kd=0.1;
 	//角度偏差
 	bias=angle_target-angle;
 	//float balance;
-	balance_pwm=kp*bias+kd*mpu_gyro_x;
+	balance_pwm=kp*bias-kd*mpu_gyro_x;
 }
 
 void getAngle()
 {
 	//角速度偏移量
-	float gyro_offset=0;
+	float gyro_offset=-10;
 	//角速度积分系数
-	float gyro_dt=0.004;
+	float gyro_dt=0.0035;
 	//滤波权重
 	float Filter_Weight=0.02;
 	
@@ -81,17 +84,17 @@ void getAngle()
 	//原始角速度减去偏移量
 	balance_Gyro=mpu_gyro_x-gyro_offset;
 	
-	accel_Angle=(float)atan2(mpu_acc_y,-mpu_acc_z)/PI*180;
+	accel_Angle=(float)atan2(mpu_acc_y,mpu_acc_z)/PI*180;
 	
 	
 	//一阶互补滤波
-	angle=Filter_Weight*accel_Angle+(1-Filter_Weight)*(angle-balance_Gyro*gyro_dt);
+	angle=Filter_Weight*accel_Angle+(1-Filter_Weight)*(angle+balance_Gyro*gyro_dt);
 	
 	//速度
-	speed_right=0.7*(ftm_quad_get(FTM1))+0.3*speed_right;
+	speed_right=0.7*(-ftm_quad_get(FTM1))+0.3*speed_right;
 	ftm_quad_clean(FTM1);
 	
-	speed_left=0.7*(-ftm_quad_get(FTM2))+0.3*speed_left;
+	speed_left=0.7*(ftm_quad_get(FTM2))+0.3*speed_left;
 	ftm_quad_clean(FTM2);
 	
 	speed=(speed_left+speed_right)/2;
@@ -116,8 +119,8 @@ void getAngle()
 	out[1]=angle;
 	out[2]=-balance_pwm;
 	out[3]=speed_bias_sum;
-	out[4]=speed;
-	out[5]=speed_target;
+	out[4]=speed_left;
+	out[5]=speed_right;
 	
 	vcan_sendware(out,sizeof(out));
 	
@@ -176,11 +179,11 @@ void turn()
 	
 	//adc读值+处理
 	float adc_weight=0.5;
-	adc[0]=adc_weight*getADC(ADC1_DM1)+(1-adc_weight)*adc[0];
-	adc[1]=adc_weight*getADC(ADC1_DP1)+(1-adc_weight)*adc[1];
-	adc[2]=adc_weight*getADC(ADC0_DP0)+(1-adc_weight)*adc[2];
-	adc[3]=adc_weight*getADC(ADC0_DM0)+(1-adc_weight)*adc[3];
-	adc[4]=adc_weight*getADC(ADC0_DM1)+(1-adc_weight)*adc[4];
+	adc[0]=adc_weight*getADC(ADC0_DM1)+(1-adc_weight)*adc[0];
+	adc[1]=adc_weight*getADC(ADC1_DP0)+(1-adc_weight)*adc[1];
+	adc[2]=adc_weight*adc_once(ADC0_DM0,ADC_12bit)+(1-adc_weight)*adc[2];
+	adc[3]=adc_weight*getADC(ADC1_DP1)+(1-adc_weight)*adc[3];
+	adc[4]=adc_weight*getADC(ADC0_DP1)+(1-adc_weight)*adc[4];
 	
 	//归一化
 	float adc_1[4];
@@ -256,8 +259,8 @@ void motorControl(float left_pwm,float right_pwm)
 			left_pwm=99;
 		}
 		
-		ftm_pwm_duty(FTM0,FTM_CH0,0);
-		ftm_pwm_duty(FTM0,FTM_CH1,left_pwm);
+		ftm_pwm_duty(FTM0,FTM_CH5,0);
+		ftm_pwm_duty(FTM0,FTM_CH6,left_pwm);
 		
 	}else
 	{
@@ -266,8 +269,8 @@ void motorControl(float left_pwm,float right_pwm)
 		{
 			left_pwm=99;
 		}
-		ftm_pwm_duty(FTM0,FTM_CH1,0);
-		ftm_pwm_duty(FTM0,FTM_CH0,left_pwm);
+		ftm_pwm_duty(FTM0,FTM_CH6,0);
+		ftm_pwm_duty(FTM0,FTM_CH5,left_pwm);
 		
 	}
 	
@@ -279,8 +282,8 @@ void motorControl(float left_pwm,float right_pwm)
 			right_pwm=99;
 		}
 		
-		ftm_pwm_duty(FTM0,FTM_CH2,0);
-		ftm_pwm_duty(FTM0,FTM_CH3,right_pwm);
+		ftm_pwm_duty(FTM0,FTM_CH7,0);
+		ftm_pwm_duty(FTM0,FTM_CH0,right_pwm);
 		
 	}else
 	{
@@ -289,8 +292,8 @@ void motorControl(float left_pwm,float right_pwm)
 		{
 			right_pwm=99;
 		}
-		ftm_pwm_duty(FTM0,FTM_CH3,0);
-		ftm_pwm_duty(FTM0,FTM_CH2,right_pwm);
+		ftm_pwm_duty(FTM0,FTM_CH0,0);
+		ftm_pwm_duty(FTM0,FTM_CH7,right_pwm);
 	}
 }
 /*

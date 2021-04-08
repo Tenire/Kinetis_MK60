@@ -24,13 +24,13 @@ void duty_8ms()
 	{
 		motorControl(0,0);
 	}
-	
+	motorControl(balance_pwm+turn_pwm,balance_pwm-turn_pwm);
 }
 void duty_80ms()
 {
 	if(j>2000)
 	{
-		velocity();
+		//velocity();
 	}
 }
 

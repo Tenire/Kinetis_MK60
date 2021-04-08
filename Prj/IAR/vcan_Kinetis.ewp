@@ -6311,6 +6311,9 @@
             <name>$PROJ_DIR$\..\..\App\Inc\OLED_list.h</name>
         </file>
         <file>
+            <name>$PROJ_DIR$\..\..\App\picture.h</name>
+        </file>
+        <file>
             <name>$PROJ_DIR$\..\..\App\Inc\PORT_cfg.h</name>
         </file>
         <file>
